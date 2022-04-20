@@ -4,11 +4,16 @@ public class Usuario {
     private String usuario;
     private String password;
 
-    //private Usuario instancia;
+    private String rol;
 
-    public Usuario(String usuario, String password) {
+    public Usuario(String usuario, String password, String rol) {
         this.usuario = usuario;
         this.password = password;
+        this.rol = rol;
+    }
+
+    public Usuario(String rol) {
+        this.rol = rol;
     }
 
     public String getUsuario() {
@@ -19,23 +24,17 @@ public class Usuario {
         return password;
     }
 
-    public static Usuario deRol(String rol){
-        if ("admin".equals(rol)){
-            return new Usuario("admin", "admin");
-        } else if ("natural".equals(rol)) {
-            return new Usuario ("camilo", "123");
-        }else{
-            return new Usuario("pepe", "pepe");
-        }
+    public String getRol() {
+        return rol;
     }
 
-    /*private Usuario fabrica(String usuario, String password){
-        if (instancia.getUsuario().equals(usuario)){
-            return instancia;
-        }else{
-            Usuario us = new Usuario(usuario, password);
-            this.instancia = us;
-            return us;
+    public void setUsPw(){
+        if ("admin".equals(this.rol)){
+            this.usuario = "admin";
+            this.password = "admin";
+        } else{
+            this.usuario = "dummy";
+            this.password = "dummy";
         }
-    }*/
+    }
 }

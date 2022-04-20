@@ -1,6 +1,6 @@
 package co.com.devco.tasks;
 
-import co.com.devco.model.Usuario;
+import co.com.devco.model.UsuarioFactory;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
@@ -28,8 +28,8 @@ public class Loguearse implements Task {
         actor.attemptsTo(
                 Open.url("https://www.demoblaze.com/#"),
                 Click.on(LINK_LOGIN),
-                Enter.theValue(Usuario.deRol(rol).getUsuario()).into(TEXT_USUARIO),
-                Enter.theValue(Usuario.deRol(rol).getPassword()).into(TEXT_CONTRASENA),
+                Enter.theValue(UsuarioFactory.delRol(rol).getUsuario()).into(TEXT_USUARIO),
+                Enter.theValue(UsuarioFactory.delRol(rol).getPassword()).into(TEXT_CONTRASENA),
                 Click.on(BOTON_LOGIN)
         );
     }
