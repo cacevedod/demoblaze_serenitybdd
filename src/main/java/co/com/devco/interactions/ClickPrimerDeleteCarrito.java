@@ -23,8 +23,10 @@ public class ClickPrimerDeleteCarrito implements Interaction {
     public <T extends Actor> void performAs(T actor) {
         ListOfWebElementFacades deletes = this.elementos.resolveAllFor(actor);
         Integer cantidadElementos = deletes.size();
-        for (int i = 0; i < cantidadElementos; i++){
-           actor.attemptsTo(Click.on(LINK_PRIMER_DELETE_PRODUCTOS_CARRITO));
+        if (cantidadElementos > 0){
+            for (int i = 0; i < cantidadElementos; i++){
+                actor.attemptsTo(Click.on(LINK_PRIMER_DELETE_PRODUCTOS_CARRITO));
+            }
         }
     }
 }
